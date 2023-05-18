@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" createEmptyFolders="true" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="bureaux@172.30.2.148:22 keras">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/bureaux/Projects/W2NER" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cache" />
+            <excludedPath path="/home/bureaux/Projects/W2NER/cache" />
+            <excludedPath local="true" path="$PROJECT_DIR$/weights" />
+            <excludedPath path="/home/bureaux/Projects/W2NER/weights" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="bureaux@172.30.2.148:22 pytorch">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/bureaux/Projects/W2NER" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cache" />
+            <excludedPath path="/home/bureaux/Projects/W2NER/cache" />
+            <excludedPath local="true" path="$PROJECT_DIR$/weights" />
+            <excludedPath path="/home/bureaux/Projects/W2NER/weights" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
