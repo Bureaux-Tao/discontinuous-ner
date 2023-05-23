@@ -1,0 +1,563 @@
+/home/bureaux/miniconda3/envs/w2ner/bin/python /home/bureaux/Projects/W2NER/train.py --config ./config/changhai.json
+2023-05-23 16:34:49 - INFO: dict_items([('dataset', 'changhai'), ('save_path', 'weights/changhai_mc-bert.pt'), ('vocab_path', 'weights/changhai.vocab'), ('dist_emb_size', 20), ('type_emb_size', 20), ('lstm_hid_size', 512), ('conv_hid_size', 96), ('bert_hid_size', 768), ('biaffine_size', 512), ('ffnn_hid_size', 288), ('dilation', [1, 2, 3]), ('emb_dropout', 0.5), ('conv_dropout', 0.5), ('out_dropout', 0.33), ('epochs', 30), ('batch_size', 4), ('learning_rate', 0.001), ('weight_decay', 0), ('clip_grad_norm', 5.0), ('bert_name', './mc-bert'), ('bert_learning_rate', 5e-06), ('warm_factor', 0.1), ('early_stop_patience', 3), ('use_bert_last_4_layers', True), ('seed', 123), ('config', './config/changhai.json'), ('device', 0)])
+2023-05-23 16:34:51 - INFO: Loading Data
+2023-05-23 16:34:51 - INFO:
++----------+-----------+----------+
+| changhai | sentences | entities |
++----------+-----------+----------+
+|  train   |    504    |   2709   |
+|   dev    |    168    |   965    |
+|   test   |     0     |    0     |
++----------+-----------+----------+
+2023-05-23 16:35:32 - INFO: Building Model
+Some weights of the model checkpoint at ./mc-bert were not used when initializing BertModel: ['cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-05-23 16:35:35 - INFO: ----------Epoch: 1----------
+Training epoch 1: 100%|██████████| 126/126 [01:48<00:00,  1.16it/s]
+2023-05-23 16:37:37 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 1 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.4902 | 0.0646 |   0.0667  | 0.0633 |
++---------+--------+--------+-----------+--------+
+Epoch 1 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.66it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:37:56 - INFO: VALID Label F1 [0.99988234 0.         0.         0.         0.         0.
+ 0.         0.         0.         0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:37:56 - INFO:
++---------+--------+-----------+--------+
+| VALID 1 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.0667 |   0.0667  | 0.0667 |
+|  Entity | 0.0000 |   0.0000  | 0.0000 |
++---------+--------+-----------+--------+
+2023-05-23 16:37:57 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:37:57 - INFO: ----------Epoch: 2----------
+Training epoch 2: 100%|██████████| 126/126 [02:02<00:00,  1.03it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:40:12 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 2 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0020 | 0.0667 |   0.0667  | 0.0667 |
++---------+--------+--------+-----------+--------+
+Epoch 2 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.68it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:40:32 - INFO: VALID Label F1 [0.99988234 0.         0.         0.         0.         0.
+ 0.         0.         0.         0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:40:32 - INFO:
++---------+--------+-----------+--------+
+| VALID 2 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.0667 |   0.0667  | 0.0667 |
+|  Entity | 0.0000 |   0.0000  | 0.0000 |
++---------+--------+-----------+--------+
+2023-05-23 16:40:33 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:40:33 - INFO: ----------Epoch: 3----------
+Training epoch 3: 100%|██████████| 126/126 [02:09<00:00,  1.03s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:42:55 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 3 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0016 | 0.0669 |   0.0879  | 0.0668 |
++---------+--------+--------+-----------+--------+
+Epoch 3 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.62it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:43:14 - INFO: VALID Label F1 [0.99987772 0.09410062 0.         0.         0.         0.
+ 0.         0.         0.         0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:43:14 - INFO:
++---------+--------+-----------+--------+
+| VALID 3 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.0729 |   0.0888  | 0.0703 |
+|  Entity | 0.0000 |   0.0000  | 0.0000 |
++---------+--------+-----------+--------+
+2023-05-23 16:43:16 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:43:16 - INFO: ----------Epoch: 4----------
+Training epoch 4: 100%|██████████| 126/126 [02:09<00:00,  1.03s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:45:38 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 4 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0014 | 0.0733 |   0.1404  | 0.0701 |
++---------+--------+--------+-----------+--------+
+Epoch 4 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.71it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:45:57 - INFO: VALID Label F1 [0.99989721 0.22237381 0.19417476 0.         0.43093923 0.37398374
+ 0.58       0.79569892 0.35964912 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:45:57 - INFO:
++---------+--------+-----------+--------+
+| VALID 4 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.2638 |   0.4514  | 0.2261 |
+|  Entity | 0.0000 |   0.0000  | 0.0000 |
++---------+--------+-----------+--------+
+2023-05-23 16:45:58 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:45:58 - INFO: ----------Epoch: 5----------
+Training epoch 5: 100%|██████████| 126/126 [02:12<00:00,  1.05s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:48:22 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 5 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0009 | 0.2200 |   0.4350  | 0.1683 |
++---------+--------+--------+-----------+--------+
+Epoch 5 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.56it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:48:42 - INFO: VALID Label F1 [0.99995    0.85459078 0.67080745 0.80487805 0.51020408 0.69958848
+ 0.74015748 0.74193548 0.38202247 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:48:42 - INFO:
++---------+--------+-----------+--------+
+| VALID 5 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.4269 |   0.4326  | 0.4338 |
+|  Entity | 0.5754 |   0.6271  | 0.5316 |
++---------+--------+-----------+--------+
+2023-05-23 16:48:43 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:48:43 - INFO: ----------Epoch: 6----------
+Training epoch 6: 100%|██████████| 126/126 [02:14<00:00,  1.07s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:51:10 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 6 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0005 | 0.3692 |   0.4757  | 0.3132 |
++---------+--------+--------+-----------+--------+
+Epoch 6 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.65it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:51:29 - INFO: VALID Label F1 [0.99996001 0.88127854 0.6835443  0.82208589 0.59649123 0.77625571
+ 0.79148936 0.82352941 0.44541485 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:51:29 - INFO:
++---------+--------+-----------+--------+
+| VALID 6 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.4547 |   0.5083  | 0.4320 |
+|  Entity | 0.5955 |   0.6856  | 0.5264 |
++---------+--------+-----------+--------+
+2023-05-23 16:51:31 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:51:31 - INFO: ----------Epoch: 7----------
+Training epoch 7: 100%|██████████| 126/126 [02:18<00:00,  1.10s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:54:02 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 7 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0004 | 0.4304 |   0.5085  | 0.3820 |
++---------+--------+--------+-----------+--------+
+Epoch 7 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.72it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:54:21 - INFO: VALID Label F1 [0.99996474 0.90383822 0.70512821 0.81212121 0.62780269 0.84729064
+ 0.80686695 0.80701754 0.51764706 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:54:21 - INFO:
++---------+--------+-----------+--------+
+| VALID 7 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.4685 |   0.5150  | 0.4431 |
+|  Entity | 0.6411 |   0.7761  | 0.5461 |
++---------+--------+-----------+--------+
+2023-05-23 16:54:22 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:54:22 - INFO: ----------Epoch: 8----------
+Training epoch 8: 100%|██████████| 126/126 [02:17<00:00,  1.09s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:56:52 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 8 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0004 | 0.4632 |   0.5327  | 0.4270 |
++---------+--------+--------+-----------+--------+
+Epoch 8 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.73it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:57:11 - INFO: VALID Label F1 [0.9999616  0.92129246 0.67065868 0.80239521 0.7        0.75720165
+ 0.80672269 0.8        0.50290135 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:57:11 - INFO:
++---------+--------+-----------+--------+
+| VALID 8 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.4641 |   0.4504  | 0.4910 |
+|  Entity | 0.7417 |   0.8605  | 0.6518 |
++---------+--------+-----------+--------+
+2023-05-23 16:57:12 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 16:57:12 - INFO: ----------Epoch: 9----------
+Training epoch 9: 100%|██████████| 126/126 [02:15<00:00,  1.07s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:59:40 - INFO:
++---------+--------+--------+-----------+--------+
+| Train 9 |  Loss  |   F1   | Precision | Recall |
++---------+--------+--------+-----------+--------+
+|  Label  | 0.0003 | 0.4799 |   0.5459  | 0.4404 |
++---------+--------+--------+-----------+--------+
+Epoch 9 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.62it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 16:59:59 - INFO: VALID Label F1 [0.99997158 0.93977947 0.69047619 0.82716049 0.70779221 0.8994709
+ 0.83408072 0.84792627 0.62857143 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 16:59:59 - INFO:
++---------+--------+-----------+--------+
+| VALID 9 |   F1   | Precision | Recall |
++---------+--------+-----------+--------+
+|  Label  | 0.4917 |   0.5066  | 0.4801 |
+|  Entity | 0.7520 |   0.9465  | 0.6238 |
++---------+--------+-----------+--------+
+2023-05-23 17:00:01 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:00:01 - INFO: ----------Epoch: 10----------
+Training epoch 10: 100%|██████████| 126/126 [02:09<00:00,  1.03s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:02:23 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 10 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0003 | 0.4901 |   0.5450  | 0.4564 |
++----------+--------+--------+-----------+--------+
+Epoch 10 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.60it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:02:43 - INFO: VALID Label F1 [0.99996943 0.93635607 0.71676301 0.82208589 0.70967742 0.8411215
+ 0.81327801 0.84255319 0.60752688 0.         0.         0.
+ 0.         0.         0.        ]
+2023-05-23 17:02:43 - INFO:
++----------+--------+-----------+--------+
+| VALID 10 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.4860 |   0.4791  | 0.4959 |
+|  Entity  | 0.7632 |   0.9184  | 0.6528 |
++----------+--------+-----------+--------+
+2023-05-23 17:02:44 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:02:44 - INFO: ----------Epoch: 11----------
+Training epoch 11: 100%|██████████| 126/126 [02:17<00:00,  1.09s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:05:14 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 11 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0003 | 0.5028 |   0.6186  | 0.4673 |
++----------+--------+--------+-----------+--------+
+Epoch 11 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.57it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:05:33 - INFO: VALID Label F1 [0.99996265 0.93363844 0.60909091 0.78362573 0.71299094 0.74418605
+ 0.65243902 0.8173913  0.58685446 0.         0.08       0.10810811
+ 0.19230769 0.         0.        ]
+2023-05-23 17:05:33 - INFO:
++----------+--------+-----------+--------+
+| VALID 11 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.4814 |   0.5659  | 0.5282 |
+|  Entity  | 0.7879 |   0.9001  | 0.7005 |
++----------+--------+-----------+--------+
+2023-05-23 17:05:34 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:05:34 - INFO: ----------Epoch: 12----------
+Training epoch 12: 100%|██████████| 126/126 [02:14<00:00,  1.07s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:08:02 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 12 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.5119 |   0.5954  | 0.4763 |
++----------+--------+--------+-----------+--------+
+Epoch 12 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.72it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:08:21 - INFO: VALID Label F1 [0.99996671 0.94110169 0.68468468 0.76571429 0.70520231 0.87850467
+ 0.68810289 0.82258065 0.60827251 0.         0.         0.15789474
+ 0.32786885 0.         0.        ]
+2023-05-23 17:08:21 - INFO:
++----------+--------+-----------+--------+
+| VALID 12 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.5053 |   0.5230  | 0.5463 |
+|  Entity  | 0.8083 |   0.9160  | 0.7233 |
++----------+--------+-----------+--------+
+2023-05-23 17:08:22 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:08:22 - INFO: ----------Epoch: 13----------
+Training epoch 13: 100%|██████████| 126/126 [02:05<00:00,  1.00it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:10:41 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 13 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.5276 |   0.6522  | 0.4882 |
++----------+--------+--------+-----------+--------+
+Epoch 13 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.64it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:11:00 - INFO: VALID Label F1 [0.99997182 0.94517637 0.75       0.80701754 0.73214286 0.90425532
+ 0.84337349 0.83898305 0.62745098 0.45454545 0.08       0.33333333
+ 0.30508475 0.         0.        ]
+2023-05-23 17:11:00 - INFO:
++----------+--------+-----------+--------+
+| VALID 13 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.5748 |   0.6927  | 0.5690 |
+|  Entity  | 0.8072 |   0.9215  | 0.7181 |
++----------+--------+-----------+--------+
+2023-05-23 17:11:00 - INFO: Epoch did not improve: 1/3.
+2023-05-23 17:11:00 - INFO: ----------Epoch: 14----------
+Training epoch 14: 100%|██████████| 126/126 [02:11<00:00,  1.05s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:13:24 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 14 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.5379 |   0.6589  | 0.4943 |
++----------+--------+--------+-----------+--------+
+Epoch 14 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.63it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:13:43 - INFO: VALID Label F1 [0.9999714  0.94288114 0.81176471 0.79096045 0.7523511  0.79835391
+ 0.7896679  0.85957447 0.68983957 0.45454545 0.08       0.15789474
+ 0.5        0.         0.        ]
+2023-05-23 17:13:43 - INFO:
++----------+--------+-----------+--------+
+| VALID 14 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.5752 |   0.6662  | 0.5991 |
+|  Entity  | 0.8256 |   0.9209  | 0.7482 |
++----------+--------+-----------+--------+
+2023-05-23 17:13:44 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:13:44 - INFO: ----------Epoch: 15----------
+Training epoch 15: 100%|██████████| 126/126 [02:11<00:00,  1.05s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:16:08 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 15 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.5565 |   0.7505  | 0.5105 |
++----------+--------+--------+-----------+--------+
+Epoch 15 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.75it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:16:27 - INFO: VALID Label F1 [0.99997606 0.94431603 0.79365079 0.82716049 0.75884244 0.93658537
+ 0.88702929 0.87272727 0.76276276 0.53846154 0.08       0.05714286
+ 0.04545455 0.         0.        ]
+2023-05-23 17:16:27 - INFO:
++----------+--------+-----------+--------+
+| VALID 15 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.5669 |   0.7610  | 0.5583 |
+|  Entity  | 0.8033 |   0.9233  | 0.7109 |
++----------+--------+-----------+--------+
+2023-05-23 17:16:27 - INFO: Epoch did not improve: 1/3.
+2023-05-23 17:16:27 - INFO: ----------Epoch: 16----------
+Training epoch 16: 100%|██████████| 126/126 [02:26<00:00,  1.16s/it]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:19:07 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 16 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.5623 |   0.6799  | 0.5193 |
++----------+--------+--------+-----------+--------+
+Epoch 16 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.75it/s]
+/home/bureaux/miniconda3/envs/w2ner/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+2023-05-23 17:19:26 - INFO: VALID Label F1 [0.9999732  0.9405609  0.86010363 0.84615385 0.74705882 0.85217391
+ 0.88715953 0.88412017 0.66216216 0.         0.47058824 0.72727273
+ 0.45614035 0.15384615 0.        ]
+2023-05-23 17:19:26 - INFO:
++----------+--------+-----------+--------+
+| VALID 16 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.6325 |   0.7102  | 0.6513 |
+|  Entity  | 0.8564 |   0.9015  | 0.8155 |
++----------+--------+-----------+--------+
+2023-05-23 17:19:27 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:19:27 - INFO: ----------Epoch: 17----------
+Training epoch 17: 100%|██████████| 126/126 [02:14<00:00,  1.07s/it]
+2023-05-23 17:21:55 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 17 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.6068 |   0.8381  | 0.5529 |
++----------+--------+--------+-----------+--------+
+Epoch 17 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.69it/s]
+2023-05-23 17:22:14 - INFO: VALID Label F1 [0.99997122 0.93769278 0.84210526 0.82901554 0.77744807 0.9245283
+ 0.87401575 0.86192469 0.6091954  0.51612903 0.7826087  0.73015873
+ 0.57407407 0.63157895 0.55555556]
+2023-05-23 17:22:14 - INFO:
++----------+--------+-----------+--------+
+| VALID 17 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.7631 |   0.7663  | 0.8056 |
+|  Entity  | 0.8833 |   0.8880  | 0.8788 |
++----------+--------+-----------+--------+
+2023-05-23 17:22:15 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:22:15 - INFO: ----------Epoch: 18----------
+Training epoch 18: 100%|██████████| 126/126 [02:10<00:00,  1.04s/it]
+2023-05-23 17:24:38 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 18 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.6339 |   0.8148  | 0.5754 |
++----------+--------+--------+-----------+--------+
+Epoch 18 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.67it/s]
+2023-05-23 17:24:57 - INFO: VALID Label F1 [0.99998089 0.94803818 0.8627451  0.86021505 0.84313725 0.95609756
+ 0.89655172 0.89956332 0.80991736 0.54054054 0.73170732 0.76190476
+ 0.63636364 0.58823529 0.76190476]
+2023-05-23 17:24:57 - INFO:
++----------+--------+-----------+--------+
+| VALID 18 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8065 |   0.8543  | 0.7990 |
+|  Entity  | 0.8903 |   0.9204  | 0.8622 |
++----------+--------+-----------+--------+
+2023-05-23 17:24:58 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:24:58 - INFO: ----------Epoch: 19----------
+Training epoch 19: 100%|██████████| 126/126 [02:16<00:00,  1.08s/it]
+2023-05-23 17:27:27 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 19 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.6436 |   0.8187  | 0.5829 |
++----------+--------+--------+-----------+--------+
+Epoch 19 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.60it/s]
+2023-05-23 17:27:46 - INFO: VALID Label F1 [0.9999738  0.9435299  0.82629108 0.8852459  0.75       0.97058824
+ 0.87407407 0.88065844 0.6284585  0.53333333 0.88372093 0.67532468
+ 0.67961165 0.75       0.83333333]
+2023-05-23 17:27:46 - INFO:
++----------+--------+-----------+--------+
+| VALID 19 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8076 |   0.7688  | 0.8706 |
+|  Entity  | 0.8958 |   0.8832  | 0.9088 |
++----------+--------+-----------+--------+
+2023-05-23 17:27:48 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:27:48 - INFO: ----------Epoch: 20----------
+Training epoch 20: 100%|██████████| 126/126 [02:16<00:00,  1.09s/it]
+2023-05-23 17:30:17 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 20 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0002 | 0.6718 |   0.8490  | 0.6088 |
++----------+--------+--------+-----------+--------+
+Epoch 20 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.73it/s]
+2023-05-23 17:30:36 - INFO: VALID Label F1 [0.99997909 0.94386694 0.85024155 0.89617486 0.77647059 0.95192308
+ 0.89056604 0.8677686  0.82451253 0.54054054 0.80851064 0.75
+ 0.74418605 0.7826087  0.85714286]
+2023-05-23 17:30:36 - INFO:
++----------+--------+-----------+--------+
+| VALID 20 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8323 |   0.7930  | 0.8826 |
+|  Entity  | 0.9076 |   0.9147  | 0.9005 |
++----------+--------+-----------+--------+
+2023-05-23 17:30:37 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:30:37 - INFO: ----------Epoch: 21----------
+Training epoch 21: 100%|██████████| 126/126 [02:16<00:00,  1.09s/it]
+2023-05-23 17:33:07 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 21 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0001 | 0.6809 |   0.8243  | 0.6237 |
++----------+--------+--------+-----------+--------+
+Epoch 21 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.65it/s]
+2023-05-23 17:33:26 - INFO: VALID Label F1 [0.99998156 0.94827586 0.85853659 0.89247312 0.85714286 0.97536946
+ 0.8973384  0.89451477 0.81578947 0.53333333 0.86363636 0.74285714
+ 0.75       0.7826087  0.8       ]
+2023-05-23 17:33:26 - INFO:
++----------+--------+-----------+--------+
+| VALID 21 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8408 |   0.8127  | 0.8769 |
+|  Entity  | 0.9090 |   0.9123  | 0.9057 |
++----------+--------+-----------+--------+
+2023-05-23 17:33:27 - INFO: Saved model to weights/changhai_mc-bert.pt.
+2023-05-23 17:33:27 - INFO: ----------Epoch: 22----------
+Training epoch 22: 100%|██████████| 126/126 [02:14<00:00,  1.07s/it]
+2023-05-23 17:35:55 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 22 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0001 | 0.7209 |   0.8366  | 0.6597 |
++----------+--------+--------+-----------+--------+
+Epoch 22 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.60it/s]
+2023-05-23 17:36:14 - INFO: VALID Label F1 [0.9999835  0.94854965 0.9119171  0.90710383 0.90721649 0.99497487
+ 0.90196078 0.93636364 0.81038961 0.53846154 0.86363636 0.7761194
+ 0.74698795 0.81818182 0.82758621]
+2023-05-23 17:36:14 - INFO:
++----------+--------+-----------+--------+
+| VALID 22 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8593 |   0.8599  | 0.8658 |
+|  Entity  | 0.9049 |   0.9179  | 0.8922 |
++----------+--------+-----------+--------+
+2023-05-23 17:36:14 - INFO: Epoch did not improve: 1/3.
+2023-05-23 17:36:14 - INFO: ----------Epoch: 23----------
+Training epoch 23: 100%|██████████| 126/126 [02:18<00:00,  1.10s/it]
+2023-05-23 17:38:45 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 23 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0001 | 0.6955 |   0.8347  | 0.6377 |
++----------+--------+--------+-----------+--------+
+Epoch 23 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.70it/s]
+2023-05-23 17:39:04 - INFO: VALID Label F1 [0.99998106 0.94543174 0.87562189 0.88770053 0.88       0.96585366
+ 0.90769231 0.92576419 0.80407125 0.58064516 0.88888889 0.74285714
+ 0.69230769 0.75       0.72727273]
+2023-05-23 17:39:04 - INFO:
++----------+--------+-----------+--------+
+| VALID 23 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8383 |   0.7988  | 0.8901 |
+|  Entity  | 0.9047 |   0.8996  | 0.9098 |
++----------+--------+-----------+--------+
+2023-05-23 17:39:04 - INFO: Epoch did not improve: 2/3.
+2023-05-23 17:39:04 - INFO: ----------Epoch: 24----------
+Training epoch 24: 100%|██████████| 126/126 [02:17<00:00,  1.09s/it]
+2023-05-23 17:41:33 - INFO:
++----------+--------+--------+-----------+--------+
+| Train 24 |  Loss  |   F1   | Precision | Recall |
++----------+--------+--------+-----------+--------+
+|  Label   | 0.0001 | 0.7337 |   0.8292  | 0.6770 |
++----------+--------+--------+-----------+--------+
+Epoch 24 dev set: 100%|██████████| 42/42 [00:11<00:00,  3.63it/s]
+2023-05-23 17:41:53 - INFO: VALID Label F1 [0.99998212 0.94816369 0.89340102 0.91208791 0.87128713 0.97536946
+ 0.90076336 0.91774892 0.8        0.58064516 0.88888889 0.75
+ 0.74725275 0.7826087  0.8       ]
+2023-05-23 17:41:53 - INFO:
++----------+--------+-----------+--------+
+| VALID 24 |   F1   | Precision | Recall |
++----------+--------+-----------+--------+
+|  Label   | 0.8512 |   0.8214  | 0.8881 |
+|  Entity  | 0.9069 |   0.9051  | 0.9088 |
++----------+--------+-----------+--------+
+2023-05-23 17:41:53 - INFO: Epoch did not improve: 3/3.
+2023-05-23 17:41:53 - INFO: Early stopping at epoch 24.
+2023-05-23 17:41:53 - INFO: Best DEV F1: 0.9090
+
+进程已结束,退出代码0

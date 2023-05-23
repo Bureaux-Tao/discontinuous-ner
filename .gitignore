@@ -180,4 +180,7 @@ weights/*.pt
 */.DS_Store
 */*/.DS_Store
 data/changhai/*
+medbert-kd-chinese/*.bin
+medbert-kd-chinese/*.msgpack
+mc-bert/*.bin
 

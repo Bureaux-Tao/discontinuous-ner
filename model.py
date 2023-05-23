@@ -189,7 +189,9 @@ class Model(nn.Module):
 
         lstm_input_size = 0
 
-        self.bert = AutoModel.from_pretrained(config.bert_name, cache_dir="./cache/", output_hidden_states=True)
+        self.bert = AutoModel.from_pretrained(pretrained_model_name_or_path=config.bert_name,
+                                              cache_dir="./cache/",
+                                              output_hidden_states=True)
         lstm_input_size += config.bert_hid_size
 
         self.dis_embs = nn.Embedding(20, config.dist_emb_size)

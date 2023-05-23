@@ -1,6 +1,6 @@
 {
   "dataset": "changhai",
-  "save_path": "weights/changhai_fgm.pt",
+  "save_path": "weights/changhai_medbert.pt",
   "vocab_path": "weights/changhai.vocab",
 
   "dist_emb_size": 20,
@@ -17,13 +17,13 @@
   "out_dropout": 0.33,
 
   "epochs": 30,
-  "batch_size": 2,
+  "batch_size": 4,
 
   "learning_rate": 1e-3,
   "weight_decay": 0,
   "clip_grad_norm": 5.0,
 
-  "bert_name": "bert-base-chinese",
+  "bert_name": "./medbert-kd-chinese",
   "bert_learning_rate": 5e-6,
   "warm_factor": 0.1,
 
